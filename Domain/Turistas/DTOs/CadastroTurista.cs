@@ -2,7 +2,7 @@
 
 namespace SpaceCare.Domain.Turistas.Dtos
 {
-    public class CriarTuristaDto
+    public class CadastroTuristaDto
     {
         [Required(ErrorMessage = "O nome do turista é obrigatório.")]
         [StringLength(100, ErrorMessage = "O nome não pode passar de {1} caracteres.")]
@@ -12,8 +12,9 @@ namespace SpaceCare.Domain.Turistas.Dtos
         [StringLength(20, ErrorMessage = "O passaporte espacial não pode passar de {1} caracteres.")]
         public string PassaporteEspacial { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "A idade é obrigatória.")]
-        public int Idade { get; set; }
+        [Required(ErrorMessage = "A data de nascimento é obrigatória.")]
+        [DataType(DataType.Date, ErrorMessage = "Formato de data inválido.")]
+        public DateTime DataNascimento { get; set; }
 
         [StringLength(250, ErrorMessage = "O histórico médico pode ter no máximo {1} caracteres.")]
         public string? HistoricoMedico { get; set; }

@@ -19,7 +19,7 @@ namespace SpaceCare.Migrations
                         .Annotation("Oracle:Identity", "START WITH 1 INCREMENT BY 1"),
                     NOME = table.Column<string>(type: "NVARCHAR2(100)", maxLength: 100, nullable: false),
                     NR_PASSAPORTE_ESPACIAL = table.Column<string>(type: "NVARCHAR2(20)", maxLength: 20, nullable: false),
-                    IDADE = table.Column<int>(type: "NUMBER(10)", nullable: false),
+                    DT_NASCIMENTO = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false),
                     HISTORICO_MEDICO = table.Column<string>(type: "NVARCHAR2(250)", maxLength: 250, nullable: true),
                     DT_CADASTRO = table.Column<DateTime>(type: "TIMESTAMP(7)", nullable: false)
                 },

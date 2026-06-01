@@ -22,8 +22,8 @@ namespace SpaceCare.Domain.Turistas
         public string PassaporteEspacial { get; set; } = string.Empty;
 
         [Required]
-        [Column("IDADE")]
-        public int Idade { get; set; }
+        [Column("DT_NASCIMENTO")]
+        public DateTime DataNascimento { get; set; }
 
         [StringLength(250)]
         [Column("HISTORICO_MEDICO")]

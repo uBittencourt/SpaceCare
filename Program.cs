@@ -12,6 +12,8 @@ var connectionString = builder.Configuration.GetConnectionString("OracleConnecti
 builder.Services.AddDbContext<SpaceCare.Infra.Data.AppDbContext>(options =>
     options.UseOracle(connectionString));
 
+builder.Services.AddScoped<SpaceCare.Services.TuristaService>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

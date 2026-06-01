@@ -35,14 +35,14 @@ namespace SpaceCare.Migrations
                         .HasColumnType("TIMESTAMP(7)")
                         .HasColumnName("DT_CADASTRO");
 
+                    b.Property<DateTime>("DataNascimento")
+                        .HasColumnType("TIMESTAMP(7)")
+                        .HasColumnName("DT_NASCIMENTO");
+
                     b.Property<string>("HistoricoMedico")
                         .HasMaxLength(250)
                         .HasColumnType("NVARCHAR2(250)")
                         .HasColumnName("HISTORICO_MEDICO");
-
-                    b.Property<int>("Idade")
-                        .HasColumnType("NUMBER(10)")
-                        .HasColumnName("IDADE");
 
                     b.Property<string>("Nome")
                         .IsRequired()

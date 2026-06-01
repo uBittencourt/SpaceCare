@@ -12,7 +12,7 @@ using SpaceCare.Infra.Data;
 namespace SpaceCare.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260601114828_CriarTabelaTuristas")]
+    [Migration("20260601125650_CriarTabelaTuristas")]
     partial class CriarTabelaTuristas
     {
         /// <inheritdoc />
@@ -38,14 +38,14 @@ namespace SpaceCare.Migrations
                         .HasColumnType("TIMESTAMP(7)")
                         .HasColumnName("DT_CADASTRO");
 
+                    b.Property<DateTime>("DataNascimento")
+                        .HasColumnType("TIMESTAMP(7)")
+                        .HasColumnName("DT_NASCIMENTO");
+
                     b.Property<string>("HistoricoMedico")
                         .HasMaxLength(250)
                         .HasColumnType("NVARCHAR2(250)")
                         .HasColumnName("HISTORICO_MEDICO");
-
-                    b.Property<int>("Idade")
-                        .HasColumnType("NUMBER(10)")
-                        .HasColumnName("IDADE");
 
                     b.Property<string>("Nome")
                         .IsRequired()
