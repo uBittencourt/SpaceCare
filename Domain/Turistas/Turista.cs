@@ -37,5 +37,9 @@ namespace SpaceCare.Domain.Turistas
         [Required]
         [Column("DT_CADASTRO")]
         public DateTime DataCadastro { get; set; } = DateTime.UtcNow;
+
+        [Required]
+        [Column("ATIVO")]
+        public string Ativo { get; set; } = "1";
     }
 }

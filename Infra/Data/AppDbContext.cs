@@ -22,6 +22,11 @@ namespace SpaceCare.Infra.Data
             modelBuilder.Entity<Turista>()
                 .HasIndex(t => t.Email)
                 .IsUnique();
+
+            modelBuilder.Entity<Turista>()
+                .Property(t => t.Ativo)
+                .HasColumnType("STRING(1)")
+                .HasDefaultValue("1");
         }
     }
 }

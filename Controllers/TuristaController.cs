@@ -19,8 +19,7 @@ namespace SpaceCare.Controllers
         [HttpPost]
         public async Task<IActionResult> CadastrarTurista([FromBody] CadastroTuristaDto dados)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            if (!ModelState.IsValid) return BadRequest(ModelState);
 
             try
             {
@@ -44,11 +43,33 @@ namespace SpaceCare.Controllers
         public async Task<IActionResult> DetalharTurista(int id)
         {
             var turista = await _service.DetalharTurista(id);
-
-            if (turista == null)
-                return NotFound();
-
+            if (turista == null) return NotFound();
             return Ok(turista);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> AtualizarTurista([FromBody] AtualizarTurista dados)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            try
+            {
+                var turistaAtualizado = await _service.AtualizarTurista(dados);
+                if (turistaAtualizado == null) return NotFound(new { mensagem = "Turista não encontrado." });
+                return Ok(turistaAtualizado);
+            }
+            catch (DbUpdateException)
+            {
+                return Conflict(new { mensagem = "O e-mail ou passaporte informado já está em uso por outro passageiro." });
+            }
+        }
+
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> ExcluirTurista(int id)
+        {
+            var excluido = await _service.ExcluirTurista(id);
+            if (!excluido) return NotFound(new { mensagem = "Turista não encontrado." });
+            return NoContent();
         }
     }
 }
