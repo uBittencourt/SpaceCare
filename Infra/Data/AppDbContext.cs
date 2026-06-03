@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SpaceCare.Domain.Telemetrias;
 using SpaceCare.Domain.Turistas;
 
 namespace SpaceCare.Infra.Data
@@ -10,6 +11,7 @@ namespace SpaceCare.Infra.Data
         }
 
         public DbSet<Turista> Turistas { get; set; }
+        public DbSet<Telemetria> Telemetrias { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -25,8 +27,20 @@ namespace SpaceCare.Infra.Data
 
             modelBuilder.Entity<Turista>()
                 .Property(t => t.Ativo)
-                .HasColumnType("STRING(1)")
+                .HasColumnType("CHAR(1)")
                 .HasDefaultValue("1");
+
+            modelBuilder.Entity<Telemetria>(b =>
+            {
+                b.ToTable("SC_TELEMETRIAS");
+                b.HasKey(t => t.Id);
+                b.Property(t => t.Id).HasColumnName("ID");
+
+                b.HasOne(t => t.Turista)
+                    .WithMany()
+                    .HasForeignKey(t => t.TuristaId)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
         }
     }
 }
