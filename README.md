@@ -1,5 +1,9 @@
 # SpaceCare — Sistema Integrado de Monitoramento de Saúde para Turismo Espacial
 
+## Índice
+
+| [Motivação](#motivação-do-projeto) | [Integrantes](#integrantes--3espg) | [Integração](#integração-com-o-projeto) | [Tecnologias](#estruturas-arquitetura-e-tecnologias) | [Endpoints](#endpoints-da-api) | [Como Executar](#como-executar-o-projeto) | [Evidências](#evidências-de-execução) |
+
 ## Motivação do Projeto
 
 O **SpaceCare** nasce como uma solução de telemedicina preventiva de alto escalão. A principal motivação é **salvar vidas por meio da antecipação de problemas**. Sensores isolados de IoT podem falhar ou gerar falsos positivos; por isso, nossa plataforma inova ao criar um ecossistema de **Inteligência Biométrica Cruzada**. Ao cruzar os dados vitais contínuos do passageiro com as reações físicas e gestos voluntários ou involuntários que ele esboça no ambiente, a equipe médica remota na Terra ganha uma precisão cirúrgica para triagem, diagnóstico e acionamento de alertas de emergência em tempo real.
@@ -15,7 +19,7 @@ O **SpaceCare** nasce como uma solução de telemedicina preventiva de alto esca
 
 ---
 
-## Integração com o Projeot
+## Integração com o Projeto
 A API REST desenvolvida em C# (.NET) atua como o cérebro centralizador e unificado da operação, recebendo informações simultâneas de dois canais digitais distintos:
 
 1. **Canal IoT Físico (Internet of Things):** Um hardware embarcado (baseado no microcontrolador ESP32) coleta continuamente os batimentos cardíacos e a temperatura corporal do turista através do traje espacial, transmitindo esses pacotes para a API por meio de requisições HTTP POST.
